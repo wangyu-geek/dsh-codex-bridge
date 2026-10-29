@@ -1,0 +1,24 @@
+{
+  "name": "@local/dsh-codex-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Inspect and control existing DeepSeek Harness sessions from Codex.",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/wangyu-geek/dsh-codex-bridge.git" },
+  "bugs": { "url": "https://github.com/wangyu-geek/dsh-codex-bridge/issues" },
+  "homepage": "https://github.com/wangyu-geek/dsh-codex-bridge#readme",
+  "packageManager": "pnpm@12.15.0",
+  "type": "module",
+  "engines": { "node": ">=24.9.0" },
+  "exports": {
+    ".": "./src/plugin.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "bin": { "dsh-codex-bridge": "./bin/mcp.js" },
+  "files": ["src", "bin", "skills", "locale", "icon.svg", "cordis.patch.yml", "README.md", "LICENSE", "THIRD_PARTY_NOTICES.md"],
+  "scripts": { "test": "node --test tests/*.test.js", "test:integration": "node --test tests/real-dsh.integration.js" },
+  "dependencies": { "@modelcontextprotocol/server": "2.2.0", "zod": "4.4.3" },
+  "devDependencies": { "@modelcontextprotocol/client": "2.2.0" },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}
